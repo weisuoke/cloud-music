@@ -7,6 +7,8 @@ function Slider(props) {
   const [sliderSwiper, setSliderSwiper] = useState(null);
   const { bannerList } = props;
 
+  console.log('🆚', props)
+
   useEffect(() => {
     if (bannerList.length && !sliderSwiper) {
       let sliderSwiper = new Swiper(".slider-container", {
