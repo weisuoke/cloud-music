@@ -5,6 +5,7 @@ import Recommend from '../application/Recommend'
 import Singers from '../application/Singers'
 import Rank from '../application/Rank'
 import Album from '../application/Album'
+import Singer from '../application/Singer'
 
 export default [
   {
@@ -21,14 +22,20 @@ export default [
         component: Recommend,
         routes: [
           {
-            path: "/recommend/:id",
+            path: '/recommend/:id',
             component: Album
           }
         ]
       },
       {
         path: '/singers',
-        component: Singers
+        component: Singers,
+        routes: [
+          {
+            path: '/singers/:id',
+            component: Singer
+          }
+        ]
       },
       {
         path: '/rank',
