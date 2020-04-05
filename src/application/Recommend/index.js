@@ -7,8 +7,9 @@ import { Content } from './style'
 import { connect } from 'react-redux'
 import * as actionTypes from './store/actionCreators'
 import Loading from '../../baseUI/loading'
+import { renderRoutes } from 'react-router-config'
 
-function Recommend (props) {
+function Recommend(props) {
   const { bannerList, recommendList, enterLoading } = props
 
   const { getBannerDataDispatch, getRecommendListDataDispatch } = props
@@ -30,6 +31,7 @@ function Recommend (props) {
         </div>
       </Scroll>
       {enterLoading ? <Loading/> : null}
+      {renderRoutes(props.route.routes)}
     </Content>
   )
 }
@@ -44,10 +46,10 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
   return {
-    getBannerDataDispatch () {
+    getBannerDataDispatch() {
       dispatch(actionTypes.getBannerList())
     },
-    getRecommendListDataDispatch () {
+    getRecommendListDataDispatch() {
       dispatch(actionTypes.getRecommendList())
     }
   }
